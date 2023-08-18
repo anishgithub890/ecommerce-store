@@ -22,3 +22,5 @@ const HomePage = async () => {
 };
 
 export default HomePage;
+
+// 3e615ecf-11d3-4c1c-85c5-6c0eb7ff3e22

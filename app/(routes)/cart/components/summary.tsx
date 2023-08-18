@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+
 import Button from '@/components/ui/button';
 import Currency from '@/components/ui/currency';
 import useCart from '@/hooks/use-cart';
@@ -15,12 +16,12 @@ const Summary = () => {
 
   useEffect(() => {
     if (searchParams.get('success')) {
-      toast.success('Payment completed');
+      toast.success('Payment completed.');
       removeAll();
     }
 
     if (searchParams.get('canceled')) {
-      toast.error('Something went wrong');
+      toast.error('Something went wrong.');
     }
   }, [searchParams, removeAll]);
 
@@ -35,6 +36,7 @@ const Summary = () => {
         productIds: items.map((item) => item.id),
       }
     );
+
     window.location = response.data.url;
   };
 
@@ -47,7 +49,11 @@ const Summary = () => {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button onClick={onCheckout} className="w-full mt-6">
+      <Button
+        onClick={onCheckout}
+        disabled={items.length === 0}
+        className="w-full mt-6"
+      >
         Checkout
       </Button>
     </div>
