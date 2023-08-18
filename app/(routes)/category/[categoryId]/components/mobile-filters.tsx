@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { Dialog } from '@headlessui/react';
 
-import Button from '@/components/ui/button';
 import IconButton from '@/components/ui/icon-button';
 import { Color, Size } from '@/types';
 import Filter from './filter';
+import Button from '@/components/ui/button';
 
 interface MobileFiltersProps {
   sizes: Size[];
